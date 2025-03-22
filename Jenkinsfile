@@ -18,12 +18,12 @@ pipeline {
             }
         }
 
-//        stage('Build') {
-//            steps {
-//                echo $NODE_ENV
-//                sh 'npm run build' // If you have a build script in package.json
-//            }
-//        }
+        stage('Build') {
+            steps {
+                echo $NODE_ENV
+                bat 'npm run build' // If you have a build script in package.json
+            }
+        }
 
     }
 
