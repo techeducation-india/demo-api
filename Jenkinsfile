@@ -14,13 +14,16 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
+                echo "Dependency Installatio"
                 bat  'npm install'
+                echo "Angular Install"
+                bat npm install -g @angular/cli
             }
         }
 
         stage('Build') {
             steps {
-                bat 'npm run build' // If you have a build script in package.json
+                bat 'ng build --prod' // If you have a build script in package.json
             }
         }
 
