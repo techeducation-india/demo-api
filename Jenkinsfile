@@ -17,7 +17,7 @@ pipeline {
                 echo "Dependency Installatio"
                 bat  'npm install'
                 echo "Angular Install"
-                bat npm install -g @angular/cli
+                bat 'npm install -g @angular/cli'
             }
         }
 
