@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo $NODE_ENV
+                echo ${env.NODE_ENV}
                 bat 'npm run build' // If you have a build script in package.json
             }
         }
