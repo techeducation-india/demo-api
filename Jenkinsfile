@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        tage('Deploy to Server') {
+        stage('Deploy to Server') {
             steps {
                 script {
                     
