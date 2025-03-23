@@ -6,8 +6,11 @@ pipeline {
     }
 
     environment {
-        // Set any environment variables if needed
-        NODE_ENV = 'production'
+        DOCKER_HUB_URL = "https://hub.docker.com/"
+        DOCKER_HUB_REPO = "techeducation/techeducation-workshop" // e.g., my-dockerhub-username/my-node-app
+        IMAGE_NAME = "sample-node-app"
+        IMAGE_TAG = "1.0.0"
+        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials') // Jenkins credentials ID for Docker Hub
     }
 
     stages {
@@ -16,14 +19,15 @@ pipeline {
             steps {
                 echo "Dependency Installatio"
                 bat  'npm install'
-                echo "Angular Install"
-                bat 'npm install -g @angular/cli'
-            }
+                }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                bat 'ng build --prod' // If you have a build script in package.json
+                script {
+                    // Build the Docker image
+                    bat "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                }
             }
         }
 
