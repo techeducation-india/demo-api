@@ -10,7 +10,7 @@ pipeline {
         DOCKER_HUB_REPO = "techeducation/techeducation-workshop" // e.g., my-dockerhub-username/my-node-app
         IMAGE_NAME = "sample-node-app"
         IMAGE_TAG = "1.0.0"
-        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials') // Jenkins credentials ID for Docker Hub
+        //DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials') // Jenkins credentials ID for Docker Hub
     }
 
     stages {
