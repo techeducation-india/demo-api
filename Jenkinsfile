@@ -31,6 +31,18 @@ pipeline {
             }
         }
 
+        tage('Deploy to Server') {
+            steps {
+                script {
+                    
+                        bat "docker stop ${IMAGE_NAME} || true "
+                        bat "docker rm ${IMAGE_NAME} || true"        
+                        bat "docker run -d --name ${IMAGE_NAME} -p 9090:9090 ${IMAGE_NAME}:${IMAGE_TAG}"       
+                    
+                }
+            }
+        }
+
     }
 
     post {
