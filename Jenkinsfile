@@ -17,8 +17,9 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                echo "Dependency Installatio"
+                echo "Dependency Installation"
                 bat  'npm install'
+                bat 'npm install mysql2'
                 }
         }
 
