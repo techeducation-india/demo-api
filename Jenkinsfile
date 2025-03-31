@@ -34,9 +34,15 @@ pipeline {
         stage('Deploy to Server') {
             steps {
                 script {
+<<<<<<< HEAD
                       //  bat "docker stop ${IMAGE_NAME} "
                        // bat "docker rm ${IMAGE_NAME} "        
                         bat "docker run -d --name ${IMAGE_NAME} --network workshop -p 9090:9090 ${IMAGE_NAME}:${IMAGE_TAG}" 
+=======
+                        bat "docker stop ${IMAGE_NAME} "
+                       bat "docker rm ${IMAGE_NAME} "        
+                        bat "docker run -d --name ${IMAGE_NAME} -p 9090:9090 ${IMAGE_NAME}:${IMAGE_TAG}" 
+>>>>>>> 7278c7636a25cccdc6acc4e929983fa282e31431
                 }
             }
         }
