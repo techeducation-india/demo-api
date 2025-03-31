@@ -37,7 +37,7 @@ pipeline {
                        bat """
                     docker stop your-app || true ^
                         && docker rm your-app || true ^
-                        && bat "docker run -d --name ${IMAGE_NAME} --network workshop -p 9090:9090 ${IMAGE_NAME}:${IMAGE_TAG}" 
+                        && docker run -d --name ${IMAGE_NAME} --network workshop -p 9090:9090 ${IMAGE_NAME}:${IMAGE_TAG} 
                     """
                     }
             }
