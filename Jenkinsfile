@@ -35,8 +35,8 @@ pipeline {
             steps {
                 script {
                        bat """
-                    docker stop your-app >nul 2>&1 || echo Container was not running
-                    docker rm your-app >nul 2>&1 || echo Container did not exist
+                    docker stop ${IMAGE_NAME} >nul 2>&1 || echo Container was not running
+                    docker rm ${IMAGE_NAME} >nul 2>&1 || echo Container did not exist
                     docker run -d --name ${IMAGE_NAME} --network workshop -p 9090:9090 ${IMAGE_NAME}:${IMAGE_TAG} 
                     """
                     }
